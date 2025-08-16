@@ -167,7 +167,7 @@ final class Hooks
         @file_put_contents($lp, (string)$now, LOCK_EX);
 
         // Пинаем воркер по доменному URL (не ждём ответа)
-        $host = 'enisey-m.ru';
+        $host = 'YOUR_HOST';
         $port = 443;
         $path = '/local/tools/sitemap_worker.php?k=' . rawurlencode(self::secret()) . '&_t=' . $now;
 

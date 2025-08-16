@@ -82,7 +82,7 @@ namespace {
                 '[' . date('Y-m-d H:i:s') . "] GEN: queue not empty after run, re-kick worker\n", FILE_APPEND);
 
             // fire-and-forget пинок воркера
-            $host = 'enisey-m.ru';
+            $host = 'YOUR_HOST';
             $port = 443;
             $path = '/local/tools/sitemap_worker.php?k=' . rawurlencode(\Enisey\Sitemap\Hooks::secret()) . '&_t=' . time();
             $errno = 0; $errstr = '';
@@ -213,7 +213,7 @@ namespace Enisey\SitemapGen {
                 $site = \Bitrix\Main\SiteTable::getList(['filter' => ['=DEF' => 'Y']])->fetch();
                 $host = $_SERVER['HTTP_HOST'] ?? $site['SERVER_NAME'] ?? '';
                 $scheme = 'https';
-                return $scheme . '://' . rtrim($host ?: 'enisey-m.ru', '/');
+                return $scheme . '://' . rtrim($host ?: 'YOUR_HOST', '/');
             })(),
             'IBLOCK_IDS' => [],
             'INCLUDE_SECTIONS' => true,
@@ -229,7 +229,7 @@ namespace Enisey\SitemapGen {
             'RESPECT_ROBOTS' => true,
             'RESPECT_META_ROBOTS' => true,
             'LASTMOD' => 'iblock', // iblock|now|none
-            'OUTPUT_DIR' => '/home/b/b2bclig5/new.enisey-m.ru/public_html',
+            'OUTPUT_DIR' => 'YOUR_HOME_DEAR',
             'SITEMAP_NAME' => 'sitemap.xml',
             'SPLIT_THRESHOLD' => 50000,
             'VALIDATE_HTTP' => false,    // выключаем предыдущую сетевую проверку
@@ -1002,8 +1002,6 @@ namespace Enisey\SitemapGen {
 // ========================= WRITE =========================
 
         $must = [
-            'https://enisey-m.ru/articles/drugoe/',
-            'https://enisey-m.ru/articles/drugoe/shtabeler-elektricheskiy-ep-es15-15cs-idealnyy-vybor-dlya-vashego-sklada/',
             // добавьте ещё 2–3 любых проблемных
         ];
         foreach ($must as $u) {
@@ -1021,9 +1019,9 @@ namespace Enisey\SitemapGen {
         }
 
         $articlesTotal = 0;
-        foreach ($index as $loc => $_) {
-            if (strpos($loc, 'https://enisey-m.ru/articles/') === 0) $articlesTotal++;
-        }
+//        foreach ($index as $loc => $_) {
+//            if (strpos($loc, 0) $articlesTotal++;
+//        }
         dbg_write("ARTICLES URLs IN SITEMAP: " . $articlesTotal, $CONFIG);
 
         ksort($index, SORT_STRING);

@@ -21,7 +21,7 @@ if ($k !== Hooks::secret()) {
 // Воркер только пинает генератор и выходит.
 
 // ---- Пинаем строго внешний URL
-$targetUrl = 'https://enisey-m.ru/local/tools/gen-site.php?token=YOUR-SECRET-CODEr&_t=' . time();
+$targetUrl = 'YOUR_HOST/local/tools/gen-site.php?token=YOUR-SECRET-CODEr&_t=' . time();
 
 $ch = curl_init();
 curl_setopt_array($ch, [
